@@ -1,5 +1,5 @@
 # antibiennale.py
-# an antivirus script to disinfect files contaminated by the virus biennale.py from 
+# an antivirus script to disinfect files contaminated by the virus biennale.py from
 # HTTP://WWW.0100101110101101.ORG and [epidemiC] http://www.epidemic.ws
 # this is a simple modification of the original biennale.py
 # by:
@@ -11,7 +11,7 @@ from string import *
 import os, sys
 from stat import *
 
-def abort(guest):
+def interrupt(guest):
     try:
         soul = open(guest, "r")
         body = soul.read()
@@ -22,11 +22,11 @@ def abort(guest):
             soul.write(newbody)
             soul.close()
             print "cleaning infected file: " + guest
-    except IOError: pass        
+    except IOError: pass
 
 def chat(party, guest):
     if split(guest, ".")[-1] in ("py", "pyw"):
-        abort(party + guest)
+        interrupt(party + guest)
 
 def join(party):
     try:
